@@ -18,42 +18,6 @@
     TIMER: 'timewise_timer_v1',
   };
 
-  // Sample tasks for first-time visitors
-  const DEFAULT_SAMPLE_TASKS = [
-    {
-      id: 'task-sample-1',
-      name: 'Membaca Bab 3 Buku Matematika',
-      time: '07:30',
-      priority: 'Tinggi',
-      completed: true,
-      createdAt: Date.now() - 3600000,
-    },
-    {
-      id: 'task-sample-2',
-      name: 'Mengerjakan Latihan Soal IPA Fisika',
-      time: '14:30',
-      priority: 'Tinggi',
-      completed: false,
-      createdAt: Date.now() - 1800000,
-    },
-    {
-      id: 'task-sample-3',
-      name: 'Istirahat & Minum Air Putih',
-      time: '16:00',
-      priority: 'Rendah',
-      completed: false,
-      createdAt: Date.now() - 1000000,
-    },
-    {
-      id: 'task-sample-4',
-      name: 'Menyiapkan Buku & Seragam Besok',
-      time: '20:00',
-      priority: 'Sedang',
-      completed: false,
-      createdAt: Date.now(),
-    },
-  ];
-
   // 8 Educational Modules Data
   const MATERI_DATA = [
     {
@@ -1553,7 +1517,7 @@
       if (progressRing) progressRing.classList.remove('break-mode');
     } else {
       if (statusLabel) statusLabel.textContent = 'WAKTU ISTIRAHAT';
-      if (quoteLabel) quoteLabel.textContent = 'Istirahatkan mata & pikiran sejenak';
+      if (quoteLabel) quoteLabel.textContent = 'Istirahatkan mata & pikiran';
       if (progressRing) progressRing.classList.add('break-mode');
     }
   }
