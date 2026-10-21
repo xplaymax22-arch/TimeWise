@@ -523,7 +523,7 @@ ul, ol {
   height: 34px;
   background-color: var(--text-primary);
   transform: translateX(-50%) rotate(70deg);
-  animation: rotateMinute 18s linear infinite;
+  animation: rotateMinute 1.8s linear infinite;
 }
 
 .minute-hand {
@@ -531,7 +531,7 @@ ul, ol {
   height: 48px;
   background-color: var(--primary-blue);
   transform: translateX(-50%) rotate(240deg);
-  animation: rotateMinute 6s linear infinite;
+  animation: rotateMinute 0.6s linear infinite;
 }
 
 @keyframes rotateMinute {
