@@ -1081,6 +1081,36 @@
     dateBadge.textContent = `${dayName}, ${date} ${monthName} ${year}`;
   }
 
+  function initIllustrationClock() {
+    const hourHand = document.querySelector('.hour-hand');
+    const minuteHand = document.querySelector('.minute-hand');
+    const secondHand = document.querySelector('.second-hand');
+    if (!hourHand || !minuteHand || !secondHand) return;
+
+    const timeFormatter = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Asia/Jakarta',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hourCycle: 'h23'
+    });
+
+    const updateClock = () => {
+      const timeParts = timeFormatter.formatToParts(new Date());
+      const getPartValue = type => Number(timeParts.find(part => part.type === type)?.value);
+      const hours = getPartValue('hour');
+      const minutes = getPartValue('minute');
+      const seconds = getPartValue('second');
+
+      hourHand.style.transform = `translateX(-50%) rotate(${((hours % 12) + minutes / 60 + seconds / 3600) * 30}deg)`;
+      minuteHand.style.transform = `translateX(-50%) rotate(${(minutes + seconds / 60) * 6}deg)`;
+      secondHand.style.transform = `translateX(-50%) rotate(${seconds * 6}deg)`;
+    };
+
+    updateClock();
+    window.setInterval(updateClock, 1000);
+  }
+
   function handleAddTask(e) {
     e.preventDefault();
     const nameInput = document.getElementById('task-name');
@@ -1955,6 +1985,7 @@
     initNavigation();
     initMateriSection();
     initPlannerSection();
+    initIllustrationClock();
     initFocusTimer();
     initQuiz();
     updateDashboardStats();
